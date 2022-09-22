@@ -17,15 +17,22 @@ class Solution:
 
 
 # fixed window size
-def find_best_subarray(nums, k):
+def fn(arr, k):
     curr = 0
-    for i in range(k):
-        curr += nums[i]
-
     ans = curr
-    for i in range(k, len(nums)):
-        curr += nums[i] - nums[i - k]
-        ans = max(ans, curr)
+    for i in range(len(arr)):
+        if i >= k:
+            curr *= arr[i]
+            arr[i-k]-=1
 
-    return ans
+
+#  Maximum Average Subarray I
+class Solution:
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
+        best = now = sum(nums[:k])
+        for i in range(k,len(nums)):
+            now += nums[i] - nums[i-k]
+            if now>best:
+                best = now
+        return best/k
 
