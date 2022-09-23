@@ -6,3 +6,10 @@ def get_sum(head):
 
     return ans
 
+
+# Recursion
+
+def getSum(head):
+    if not head:
+        return None
+    return head.val + getSum(head.next)
