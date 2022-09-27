@@ -11,3 +11,17 @@ class Solution:
                 return True
 
         return False
+
+
+# Given the head of a linked list and an integer k, return the k^{th}k
+def find_node(head, k):
+    slow = head
+    fast = head
+    for _ in range(k):
+        fast = fast.next
+
+    while fast:
+        slow = slow.next
+        fast = fast.next
+
+    return slow
